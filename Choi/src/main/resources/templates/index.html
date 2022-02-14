@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta property="og:title" content="나만의 블로그">
+    <meta property="og:description" content="블로그 기능구현해봤습니다">
+    <meta property="og:image" content="images/og_selectshop.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <title>나만의 블로그</title>
+
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+
+
+
+</head>
+
+<script>
+    // $(document).ready(function () {
+    //     if ($.cookie('token')) {
+    //         $.ajaxSetup({
+    //             headers: {
+    //                 'Authorization': $.cookie('token')
+    //             }
+    //         })
+    //     } else {
+    //         window.location.href = '/user/loginView';
+    //     }
+    //
+    //     $.ajax({
+    //         type: "POST",
+    //         url: `/user/userinfo`,
+    //         contentType: "application/json",
+    //         success: function (response) {
+    //             const username = response.username;
+    //
+    //             if (!username) {
+    //                 window.location.href = '/user/loginView';
+    //             }
+    //
+    //         },
+    //         error: function () {
+    //             window.location.href = '/user/loginView';
+    //         }
+    //     })
+    //
+    // })
+
+</script>
+
+<body>
+test
+
+
+<form id="my_form" method="post" action="/user/logout">
+    <a id="logout-text" href="javascript:{}" onclick="document.getElementById('my_form').submit();">로그아웃</a>
+</form>
+
+</body>
+</html>
