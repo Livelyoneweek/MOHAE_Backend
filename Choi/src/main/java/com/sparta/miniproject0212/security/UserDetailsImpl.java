@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 
 import java.util.Collection;
+import java.util.Collections;
 
 public class UserDetailsImpl implements UserDetails {
 
@@ -17,16 +18,19 @@ public class UserDetailsImpl implements UserDetails {
     }
 
     public User getUser() {
+
         return user;
     }
 
     @Override
     public String getPassword() {
+
         return user.getPassword();
     }
 
     @Override
     public String getUsername() {
+
         return user.getUsername();
     }
 
@@ -52,6 +56,7 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+
+        return Collections.emptyList();
     }
 }

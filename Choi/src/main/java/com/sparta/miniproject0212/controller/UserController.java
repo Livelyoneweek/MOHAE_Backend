@@ -13,7 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 
-@Controller //rest컨트롤러는 json으로 데이터 주고받을때 사용
+@RestController //rest컨트롤러는 json으로 데이터 주고받을때 사용
 public class UserController {
 
     private final UserService userService;
@@ -26,14 +26,14 @@ public class UserController {
 
     // 홈페이지 이동 API
     @GetMapping ("/")
-    public String home (@AuthenticationPrincipal UserDetailsImpl userDetails) {
+    public urlDto home (@AuthenticationPrincipal UserDetailsImpl userDetails) {
         if(userDetails ==null) {
-            //return new urlDto("/");
-            return "index";
+            return new urlDto("/");
+
         }else{
             //model.addAttribute("userId", userDetails.getUser().getId());
-            //return new urlDto("/");
-            return "index";
+            return new urlDto("/");
+
         }
     }
 
@@ -51,20 +51,21 @@ public class UserController {
 //    }
 
     @GetMapping("/user/loginView")
-    public String login() {
-        return "login";
+    public urlDto login() {
+        return new urlDto("/user/loginView");
+
     }
 
     // 회원가입 페이지 이동
     @GetMapping("/move/signup")
-    public String signup(@AuthenticationPrincipal UserDetailsImpl userDetails) {
+    public urlDto signup(@AuthenticationPrincipal UserDetailsImpl userDetails) {
         if (userDetails == null) {
-            //return new urlDto("/move/signup");
-            return "signup";
+            return new urlDto("/move/signup");
+
         }else {
             //model.addAttribute("userId", userDetails.getUser().getId());
-            //return new urlDto("/move/signup");
-            return "signup";
+            return new urlDto("/move/signup");
+
         }
     }
 
@@ -73,11 +74,12 @@ public class UserController {
     @GetMapping ("/move/detail")
     public urlDto moveUserDetails ( @AuthenticationPrincipal UserDetailsImpl userDetails) {
 
-        Long userId = userDetails.getUser().getId();
+
 
         if(userDetails ==null) {
             return new urlDto("/move/detail");
         } else{
+            //Long userId = userDetails.getUser().getId();
             //model.addAttribute("userId", userDetails.getUser().getId());
             return new urlDto("/move/detail");
         }
@@ -86,7 +88,10 @@ public class UserController {
 
     // 회원 가입 요청 처리
     @PostMapping("/user/signup")
-    public String registerUser(SignupRequestDto signupRequestDto ) {
+    public ErrorMessageDto registerUser(@RequestBody SignupRequestDto signupRequestDto ) {
+        System.out.println(signupRequestDto.getNickname());
+        System.out.println(signupRequestDto.getPassword());
+        System.out.println(signupRequestDto.getUsername());
 
         try{
             userService.registerUser(signupRequestDto);
@@ -94,14 +99,15 @@ public class UserController {
         } catch (Exception e) {
             String error = e.getMessage();
 
-            //ErrorMessageDto errorMessageDto = new ErrorMessageDto("NG",error,"signup");
-            //return errorMessageDto;
+            ErrorMessageDto errorMessageDto = new ErrorMessageDto("NG",error,"signup");
+            System.out.println("signup NG");
+            return errorMessageDto;
 
-            return "signup";
         }
-        //ErrorMessageDto errorMessageDto = new ErrorMessageDto("OK","null","signup");
-        //return errorMessageDto;
-        return "login";
+        ErrorMessageDto errorMessageDto = new ErrorMessageDto("OK","null","signup");
+        System.out.println("signup OK");
+        return errorMessageDto;
+
     }
 
 

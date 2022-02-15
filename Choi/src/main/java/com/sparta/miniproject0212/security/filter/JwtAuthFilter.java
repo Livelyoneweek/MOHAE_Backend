@@ -42,6 +42,7 @@ public class JwtAuthFilter extends AbstractAuthenticationProcessingFilter {
 
         // JWT 값을 담아주는 변수 TokenPayload
         String tokenPayload = request.getHeader("Authorization");
+        System.out.println("request Authorization header : " + tokenPayload + " / " + (tokenPayload == null?"null 토큰.":"값이 존재하는 토큰."));
         if (tokenPayload == null) {
             response.sendRedirect("/user/loginView");
             return null;
@@ -90,6 +91,7 @@ public class JwtAuthFilter extends AbstractAuthenticationProcessingFilter {
          *	모든 인증받은 Context 값이 삭제 됩니다.
          */
         SecurityContextHolder.clearContext();
+        System.out.println("token값 제거");
 
         super.unsuccessfulAuthentication(
                 request,
