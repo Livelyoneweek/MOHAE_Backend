@@ -72,6 +72,22 @@ Project_Name : MOHAE
 4. 최고 관심 수 상단에 노출
 5. ‘좋아요’ 단어가 아닌 ‘관심’이라는 관계 형성을 위한 단어를 사용하여, 해당 활동에 대한 관심대 형성
 
+## 프로젝트 화면단
+
+1.메인화면
+![image](https://user-images.githubusercontent.com/74662752/155520394-3fca3def-9ffe-4cc5-8d72-9387f46f3632.png)
+![image](https://user-images.githubusercontent.com/74662752/155520416-b454f81f-44bb-4646-a87a-56601b0b679b.png)
+![image](https://user-images.githubusercontent.com/74662752/155520451-28f0d6fe-ef4c-4f17-8ff6-45e660f535af.png)
+
+2.회원가입 페이지
+![image](https://user-images.githubusercontent.com/74662752/155520486-000095e3-7b37-4c90-85da-fc03771d7245.png)
+![image](https://user-images.githubusercontent.com/74662752/155520504-0f0a14a5-baa0-42e2-a523-3f7eabc95919.png)
+
+3.로그인 페이지
+![image](https://user-images.githubusercontent.com/74662752/155520533-42b5028c-85bd-4a35-b89c-99890a0c72a1.png)
+![image](https://user-images.githubusercontent.com/74662752/155520545-8a60d83a-e27d-4b77-9789-e9ba2868dadf.png)
+
+
 
 ![001](https://user-images.githubusercontent.com/97423687/154423580-826c95e5-a592-443f-876a-53d2142545be.png)
 
