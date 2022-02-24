@@ -75,17 +75,38 @@ Project_Name : MOHAE
 ## 프로젝트 화면단
 
 1.메인화면
+
 ![image](https://user-images.githubusercontent.com/74662752/155520394-3fca3def-9ffe-4cc5-8d72-9387f46f3632.png)
 ![image](https://user-images.githubusercontent.com/74662752/155520416-b454f81f-44bb-4646-a87a-56601b0b679b.png)
 ![image](https://user-images.githubusercontent.com/74662752/155520451-28f0d6fe-ef4c-4f17-8ff6-45e660f535af.png)
 
 2.회원가입 페이지
+
 ![image](https://user-images.githubusercontent.com/74662752/155520486-000095e3-7b37-4c90-85da-fc03771d7245.png)
 ![image](https://user-images.githubusercontent.com/74662752/155520504-0f0a14a5-baa0-42e2-a523-3f7eabc95919.png)
 
 3.로그인 페이지
+
 ![image](https://user-images.githubusercontent.com/74662752/155520533-42b5028c-85bd-4a35-b89c-99890a0c72a1.png)
 ![image](https://user-images.githubusercontent.com/74662752/155520545-8a60d83a-e27d-4b77-9789-e9ba2868dadf.png)
+
+4. 글 작성/수정 페이지
+
+![image](https://user-images.githubusercontent.com/74662752/155520686-ecda6954-743b-45fe-a666-816b70e2b572.png)
+![image](https://user-images.githubusercontent.com/74662752/155520703-4ae2da66-2f7d-4f10-bd4f-f08d0f825d3a.png)
+![image](https://user-images.githubusercontent.com/74662752/155520776-f19327ea-b5db-430d-b4a1-729b1e66dbf1.png)
+
+
+5. 마이페이지
+
+![image](https://user-images.githubusercontent.com/74662752/155520827-631c7788-9ea4-4285-9e81-04778a31ff12.png)
+![image](https://user-images.githubusercontent.com/74662752/155520869-16ad97f1-6b27-4de2-8e5f-7e083285d26e.png)
+
+6. 디테일페이지
+
+![image](https://user-images.githubusercontent.com/74662752/155520915-c076b167-831a-474d-996e-ee95c82cd190.png)
+![image](https://user-images.githubusercontent.com/74662752/155520978-2b207ab9-8372-4b5b-8f9f-9716fe9eadb4.png)
+
 
 
 
