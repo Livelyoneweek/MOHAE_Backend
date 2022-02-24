@@ -10,4 +10,5 @@ public class CommentRequestDto {
     private Long postId;
     private String comment;
     private String insert_dt;
+    private String nickname;
 }

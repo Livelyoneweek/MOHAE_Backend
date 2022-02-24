@@ -33,6 +33,7 @@ public class FormLoginFilter extends UsernamePasswordAuthenticationFilter {
             System.out.println(username +" 변수타입 : " +username.getClass().getName());
             System.out.println(password +" 변수타입 : " +password.getClass().getName());
 
+            //클라이언트가 보내준 유저네임,패스워드로 토큰을 만듬
             authRequest = new UsernamePasswordAuthenticationToken(username,password);
 
             System.out.println("authRequest : " + authRequest);
@@ -41,7 +42,10 @@ public class FormLoginFilter extends UsernamePasswordAuthenticationFilter {
             throw new RuntimeException("username, password 입력이 필요합니다. (JSON)");
         }
 
+
         setDetails(request, authRequest);
+
+        //user서비스디테일즈가 실행됌
         return this.getAuthenticationManager().authenticate(authRequest);
     }
 }

@@ -65,22 +65,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.httpBasic().disable()
-                .csrf()
-                .disable()
-        .authorizeRequests()
+        http.httpBasic().disable() // Http basic Auth  기반으로 로그인 인증창이 뜸.  disable 시에 인증창 뜨지 않음.
+                .csrf().disable() // rest api이므로 csrf 보안이 필요없으므로 disable처리.
+        .authorizeRequests() //시큐리티 처리에 HttpServletRequest를 이용한다는 것을 의미
                 //.antMatchers();
-                .requestMatchers(CorsUtils::isPreFlightRequest).permitAll();
-        //test
+                .requestMatchers(CorsUtils::isPreFlightRequest).permitAll(); //preflight request에 대해, 인증을 하지 않고 요청을 모두 허용
+
+                //preflight request이란 사전요청으로 서버에서 브라우저한테 어떤 Origin과 Method에 대하여 접근을 허용하는지 알려줍니다
 
         // 서버에서 인증은 JWT로 인증하기 때문에 Session의 생성을 막습니다.
         http
-                .cors()
+                .cors() // spring-security에서 cors를 적용한다는 설정, 인증 성공 여부와 무관하게 Origin 헤더가 있는 모든 요청에 대해 CORS 헤더를 포함한 응답을 해줌
                 .and()
-                .csrf()
-                .disable()
                 .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS); //jwt token으로 인증하므로 stateless 하도록 처리.
 
         http.headers().frameOptions().disable();
 /*

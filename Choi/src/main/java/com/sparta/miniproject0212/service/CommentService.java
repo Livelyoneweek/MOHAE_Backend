@@ -16,15 +16,24 @@ import java.util.List;
 public class CommentService {
 
     private final CommentRepository commentRepository;
+    private final PostService postService;
 
     @Autowired
-    public CommentService(CommentRepository commentRepository){
+    public CommentService(CommentRepository commentRepository, PostService postService){
         this.commentRepository = commentRepository;
+        this.postService =postService;
     }
+
     //댓글생성
     public Comments createComment(CommentRequestDto commentRequestDto){
+
         Comments comments = new Comments(commentRequestDto);
         commentRepository.save(comments);
+
+        //포스트에 댓글 카운트 업데이트 실행
+        Long postId = commentRequestDto.getPostId();
+        postService.commentCount(postId);
+
         return comments;
     }
 
@@ -38,7 +47,6 @@ public class CommentService {
             responseDto.setNickname(comments.get(i).getNickname());
             responseDto.setComment(comments.get(i).getComment());
             responseDto.setInsert_dt(comments.get(i).getInsert_dt());
-
             responseDtoList.add(responseDto);
         }
         return responseDtoList;
@@ -51,7 +59,15 @@ public class CommentService {
                 () -> new IllegalArgumentException("아이디가 존재하지 않습니다.")
         );
         comments.update(commentRequestDto);
+
         return comments;
     }
 
+    //댓글 삭제
+    public void deleteComment(Long commentId) {
+
+        System.out.println("delete commentId : " + commentId);
+        commentRepository.deleteById(commentId);
+
+    }
 }

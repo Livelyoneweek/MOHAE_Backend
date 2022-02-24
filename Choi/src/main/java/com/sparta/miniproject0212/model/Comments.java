@@ -10,7 +10,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @Entity
-public class Comments {
+public class Comments  {
 
     //게시글 아이디가 들어갈 때는 userId , 댓글이 들어가기 위해선 PostId입니다.
     //댓글 삭제 시 Long id,== commentId이니까.
@@ -26,11 +26,12 @@ public class Comments {
     private Long userId;
 
     //게시글
+
     @Column(nullable = false)
     private Long postId;
 
     //닉네임
-    @Column(nullable = true)
+    @Column(nullable = false)
     private String nickname;
 
     //댓글내용
@@ -46,6 +47,7 @@ public class Comments {
         this.postId = commentRequestDto.getPostId();
         this.comment = commentRequestDto.getComment();
         this.insert_dt = commentRequestDto.getInsert_dt();
+        this.nickname = commentRequestDto.getNickname();
     }
 
     public void update(CommentRequestDto commentRequestDto){

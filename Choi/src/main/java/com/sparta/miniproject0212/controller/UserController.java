@@ -1,10 +1,7 @@
 package com.sparta.miniproject0212.controller;
 
 
-import com.sparta.miniproject0212.dto.ErrorMessageDto;
-import com.sparta.miniproject0212.dto.SignupRequestDto;
-import com.sparta.miniproject0212.dto.UserInfoDto;
-import com.sparta.miniproject0212.dto.urlDto;
+import com.sparta.miniproject0212.dto.*;
 import com.sparta.miniproject0212.security.UserDetailsImpl;
 import com.sparta.miniproject0212.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,8 +71,6 @@ public class UserController {
     @GetMapping ("/move/detail")
     public urlDto moveUserDetails ( @AuthenticationPrincipal UserDetailsImpl userDetails) {
 
-
-
         if(userDetails ==null) {
             return new urlDto("/move/detail");
         } else{
@@ -109,6 +104,48 @@ public class UserController {
         return errorMessageDto;
 
     }
+
+    // 로그인 유저 정보 확인
+    @PostMapping ("/check/user")
+    public UserCheckDto userLoginCheck (@AuthenticationPrincipal UserDetailsImpl userDetails) {
+        System.out.println(userDetails);
+
+        if (userDetails!=null) {
+            String username = userDetails.getUsername();
+            String nickname = userDetails.getNickname();
+            Long userId = userDetails.getUserid();
+            boolean check = true;
+
+            return new UserCheckDto(username,nickname, userId,check);
+
+        } else {
+            String username = "null";
+            String nickname = "null";
+            Long userId = 0L;
+            boolean check = false;
+            return new UserCheckDto(username,nickname, userId,check);
+        }
+    }
+
+    // 회원 가입시 유저네임 중복 체크 버튼
+    @PostMapping("/user/checkid")
+    public String checkName(@RequestBody SignupRequestDto signupRequestDto) {
+        String username = signupRequestDto.getUsername();
+        System.out.println("중복확인, 유저네임은 : " + username);
+        String check = userService.usernameCheck(username);
+        return check;
+    }
+
+    // 회원 가입시 닉네임 중복 체크 버튼
+    @PostMapping("/user/checknik")
+    public String checkNik(@RequestBody SignupRequestDto signupRequestDto) {
+        String nickname = signupRequestDto.getNickname();
+        System.out.println("중복확인, 닉네임은 : " + nickname);
+        String check = userService.nicknameCheck(nickname);
+        return check;
+    }
+
+
 
 
 //    // 회원 관련 정보 받기

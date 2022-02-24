@@ -41,7 +41,6 @@ public class FormLoginAuthProvider implements AuthenticationProvider {
         if (!passwordEncoder.matches(password, userDetails.getPassword())) {
 
             System.out.println("userDetails.getPassword() : " +userDetails.getPassword());
-
             System.out.println("Auth에서 비밀번호 일치 확인 : " + passwordEncoder.matches(password, userDetails.getPassword()));
 
             throw new BadCredentialsException(userDetails.getUsername() + "Invalid password");
