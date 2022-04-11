@@ -1,4 +1,4 @@
-# MiniProject2022_02
+# MOHAE_Backend (Mini Project)
 Project_Name : MOHAE
 
 
